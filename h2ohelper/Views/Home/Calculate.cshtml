@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Calculate";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>This page is where we figure out just how hydrated you are....</p>
+
+@{
+    var total = 0;
+    var intakeResultMessage = "";
+    if (IsPost)
+    {
+
+        // Retrieve the numbers that the user entered
+        var num1 = Request["text1"];
+        var num2 = Request["text2"];
+
+        // Arithmetic operation to figure out the water intake
+        total = num1.AsInt() + num2.AsInt();
+
+        // Display just the hydration level or the score also
+        intakeResultMessage = "Your hydration level today = " + total;
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>h20 Tracker</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        body {
+            background-color: lightskyblue;
+            font-family: Verdana, Arial;
+            margin: 50px;
+        }
+
+        form {
+            padding: 10px;
+            border-style: solid;
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <p>This calculator requires you to enter the amount of water you have drank <strong>Today</strong> in L or ml</p>
+    <p>And your weight in kg (soon to add lb conversion)</p>
+    <p>Enter two whole numbers and then click <strong>Check consumption</strong>.</p>
+    <form action="" method="post">
+        <p>
+            <label for="text1">Water in-take (ml/L):</label>
+            <input type="text" name="text1" />
+        </p>
+        <p>
+            <label for="text2">Your weight (in kg):</label>
+            <input type="text" name="text2" />
+        </p>
+        <p><input type="submit" value="Check consumption" /></p>
+    </form>
+
+    <p>@intakeResultMessage</p>
+
+</body>
+</html>
