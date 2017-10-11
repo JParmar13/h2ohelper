@@ -13,11 +13,16 @@
     {
 
         // Retrieve the numbers that the user entered
-        var num1 = Request["text1"];
-        var num2 = Request["text2"];
+        int waterInt = Request["text1"];
+        int weightInt = Request["text2"];
+        double consumptionRequired = weightInt * 0.033;
+
+
+
+
 
         // Arithmetic operation to figure out the water intake
-        total = num1.AsInt() + num2.AsInt();
+        total = waterInt.AsInt() + weightInt.AsInt();
 
         // Display just the hydration level or the score also
         intakeResultMessage = "Your hydration level today = " + total;
@@ -50,11 +55,11 @@
     <form action="" method="post">
         <p>
             <label for="text1">Water in-take (ml/L):</label>
-            <input type="text" name="text1" />
+            <input type="number" name="text1" />
         </p>
         <p>
             <label for="text2">Your weight (in kg):</label>
-            <input type="text" name="text2" />
+            <input type="number" name="text2" />
         </p>
         <p><input type="submit" value="Check consumption" /></p>
     </form>

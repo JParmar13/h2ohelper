@@ -27,5 +27,10 @@ namespace h2ohelper.Controllers
 
             return View();
         }
+
+        public ActionResult Convert()
+        {
+            return View();
+        }
     }
 }

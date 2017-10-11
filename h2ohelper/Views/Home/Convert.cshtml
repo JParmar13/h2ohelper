@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Convert";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>This page is where we figure out just how hydrated you are....</p>
+
+<p>This calculator requires you to enter the amount of water you have drank <strong>Today</strong> in L or ml</p>
+<p>And your weight in kg (soon to add lb conversion)</p>
+<p>Enter two whole numbers and then click <strong>Check consumption</strong>.</p>
+
+
+<script type="text/javascript" src="~/Scripts/conv.js"></script>
+
+
+<form id="form1" action="Convert.cshtml" method="post">
+    <table>
+        <tr>
+            <th colspan="2">Let's see what your intake is</th>
+        </tr>
+        <tr>
+            <td>Enter your weight here estimated in kg</td>
+            <td>
+                <input type="number" id="UserWeight" placeholder="kg" />
+            </td>
+        </tr>
+        <tr>
+            <td>Enter your water in-take today here</td>
+            <td>
+                <input type="number" id="WaterIntake" placeholder="Litres" />
+            </td>
+        </tr>
+        <tr>
+            <td>Your hydration level today is:</td>
+            <td>
+                <p id="Hydration"></p>
+            </td>
+            </tr>
+        <tr>
+            <td>
+
+            <p> For your weight you should consume
+            <p id="ConsumeThisAmount"> </p>
+            </td>
+<td>
+            <p id="test"></p>
+    </td>
+        </tr>
+    </table>
+            
+            
+    <input type="button" onclick="Convert()" value="Convert" />
+</form>
